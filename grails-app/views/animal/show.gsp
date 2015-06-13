@@ -95,22 +95,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${animalInstance?.img_avatar}">
-				<li class="fieldcontain">
-					<span id="img_avatar-label" class="property-label"><g:message code="animal.img_avatar.label" default="Imgavatar" /></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${animalInstance?.avatarType}">
-				<li class="fieldcontain">
-					<span id="avatarType-label" class="property-label"><g:message code="animal.avatarType.label" default="Avatar Type" /></span>
-					
-						<span class="property-value" aria-labelledby="avatarType-label"><g:fieldValue bean="${animalInstance}" field="avatarType"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${animalInstance?.eventos}">
 				<li class="fieldcontain">
 					<span id="eventos-label" class="property-label"><g:message code="animal.eventos.label" default="Eventos" /></span>

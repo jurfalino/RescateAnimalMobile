@@ -11,8 +11,8 @@ class Animal {
             eventos : AnimalEvent
     ]
 
-    byte[] img_avatar
-    String avatarType
+    //byte[] img_avatar
+    //String avatarType
     Date dateOfBirth
     Date dateOfIntake
     Date dateNeutered
@@ -26,7 +26,8 @@ class Animal {
         dateOfIntake (blank: false)
         dateNeutered (blank: false)
 
-        img_avatar (nullable:true, maxSize: 16384 /* 16K */)
-        avatarType (nullable:true)
+        //img_avatar (nullable:true, maxSize: 16384 /* 16K */)
+        //avatarType (nullable:true)
+        eventos (nullable:true)
     }
 }

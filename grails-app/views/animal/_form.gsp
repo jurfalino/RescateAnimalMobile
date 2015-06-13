@@ -74,24 +74,6 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: animalInstance, field: 'img_avatar', 'error')} ">
-	<label for="img_avatar">
-		<g:message code="animal.img_avatar.label" default="Imgavatar" />
-		
-	</label>
-	<input type="file" id="img_avatar" name="img_avatar" />
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: animalInstance, field: 'avatarType', 'error')} ">
-	<label for="avatarType">
-		<g:message code="animal.avatarType.label" default="Avatar Type" />
-		
-	</label>
-	<g:textField name="avatarType" value="${animalInstance?.avatarType}"/>
-
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: animalInstance, field: 'eventos', 'error')} ">
 	<label for="eventos">
 		<g:message code="animal.eventos.label" default="Eventos" />
