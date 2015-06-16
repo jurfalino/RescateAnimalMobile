@@ -44,6 +44,10 @@ grails.project.dependency.resolution = {
         mavenRepo "http://repository.codehaus.org"
         mavenRepo "http://download.java.net/maven/2/"
         mavenRepo "http://repository.jboss.com/maven2/"
+        //for commons-collections
+        mavenRepo "http://repo1.maven.org/maven2/"
+        mavenRepo "http://repo.maven.apache.org/maven2"
+        mavenRepo "http://repository.apache.org/snapshots"
 
         // needed for html5-mobile-scaffolding:0.6.1
         // mavenRepo "http://maven.springframework.org/milestone/"
@@ -75,6 +79,8 @@ grails.project.dependency.resolution = {
         compile ':spring-security-core:2.0-RC4' //add users & roles //http://grails.org/plugin/spring-security-core
         compile ":spring-security-ui:1.0-RC2" //add register as new user functionality //https://grails.org/plugin/spring-security-ui
         compile ":spring-security-facebook:0.17"
+        //compile 'commons-collections:commons-collections:3.2.1'
+        compile ":jquery-ui:1.10.4"
 
         //runtime ":twitter-bootstrap:3.3.4"
         //compile ":lesscss-resources:1.3.3"
