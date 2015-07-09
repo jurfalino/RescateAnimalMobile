@@ -8,6 +8,8 @@
 //= require jquery
 //= require_tree .
 //= require_self
+//= require jquery-ui
+//= require dynamicBlock
 
 if (typeof jQuery !== 'undefined') {
 	(function($) {

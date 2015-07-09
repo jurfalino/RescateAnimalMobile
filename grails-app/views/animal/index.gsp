@@ -34,7 +34,7 @@
 					
 						<g:sortableColumn property="raza" title="${message(code: 'animal.raza.label', default: 'Raza')}" />
 					
-						<g:sortableColumn property="dateOfBirth" title="${message(code: 'animal.dateOfBirth.label', default: 'Date Of Birth')}" />
+						<g:sortableColumn property="dateNeutered" title="${message(code: 'animal.dateNeutered.label', default: 'Date Neutered')}" />
 					
 					</tr>
 				</thead>
@@ -52,7 +52,7 @@
 					
 						<td>${fieldValue(bean: animalInstance, field: "raza")}</td>
 					
-						<td><g:formatDate date="${animalInstance.dateOfBirth}" /></td>
+						<td><g:formatDate date="${animalInstance.dateNeutered}" /></td>
 					
 					</tr>
 				</g:each>

@@ -49,6 +49,8 @@ grails.mime.types = [ // the first one is the default format
 // Legacy setting for codec used to encode data with ${}
 grails.views.default.codec = "html"
 
+grails.views.gsp.codecs.expression='none'
+
 // The default scope for controllers. May be prototype, session or singleton.
 // If unspecified, controllers are prototype scoped.
 grails.controllers.defaultScope = 'singleton'
@@ -133,6 +135,8 @@ log4j.main = {
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'org.rescate.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'org.rescate.UserRole'
 grails.plugin.springsecurity.authority.className = 'org.rescate.Role'
+grails.plugin.springsecurity.authority.groupAuthorityNameField = 'authorities'
+grails.plugin.springsecurity.useRoleGroups = true
 //grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/home'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/':                              ['permitAll'],
@@ -149,7 +153,8 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 ]
 grails.plugin.springsecurity.rejectIfNoRule = false
 grails.plugin.springsecurity.fii.rejectPublicInvocations = false
-
+grails.plugin.springsecurity.logout.postOnly = false
 
 //grails.plugins.twitterbootstrap.fixtaglib = true
 //grails.plugins.twitterbootstrap.defaultBundle = 'bundle_bootstrap'
+

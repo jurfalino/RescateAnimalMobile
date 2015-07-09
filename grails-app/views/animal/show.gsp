@@ -68,20 +68,13 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${animalInstance?.dateOfBirth}">
+				<g:if test="${animalInstance?.eventos}">
 				<li class="fieldcontain">
-					<span id="dateOfBirth-label" class="property-label"><g:message code="animal.dateOfBirth.label" default="Date Of Birth" /></span>
+					<span id="eventos-label" class="property-label"><g:message code="animal.eventos.label" default="Eventos" /></span>
 					
-						<span class="property-value" aria-labelledby="dateOfBirth-label"><g:formatDate date="${animalInstance?.dateOfBirth}" /></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${animalInstance?.dateOfIntake}">
-				<li class="fieldcontain">
-					<span id="dateOfIntake-label" class="property-label"><g:message code="animal.dateOfIntake.label" default="Date Of Intake" /></span>
-					
-						<span class="property-value" aria-labelledby="dateOfIntake-label"><g:formatDate date="${animalInstance?.dateOfIntake}" /></span>
+						<g:each in="${animalInstance.eventos}" var="e">
+						<span class="property-value" aria-labelledby="eventos-label"><g:link controller="animalEvent" action="show" id="${e.id}">${e?.encodeAsHTML()}</g:link></span>
+						</g:each>
 					
 				</li>
 				</g:if>
@@ -95,13 +88,20 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${animalInstance?.eventos}">
+				<g:if test="${animalInstance?.dateOfIntake}">
 				<li class="fieldcontain">
-					<span id="eventos-label" class="property-label"><g:message code="animal.eventos.label" default="Eventos" /></span>
+					<span id="dateOfIntake-label" class="property-label"><g:message code="animal.dateOfIntake.label" default="Date Of Intake" /></span>
 					
-						<g:each in="${animalInstance.eventos}" var="e">
-						<span class="property-value" aria-labelledby="eventos-label"><g:link controller="animalEvent" action="show" id="${e.id}">${e?.encodeAsHTML()}</g:link></span>
-						</g:each>
+						<span class="property-value" aria-labelledby="dateOfIntake-label"><g:formatDate date="${animalInstance?.dateOfIntake}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${animalInstance?.edad}">
+				<li class="fieldcontain">
+					<span id="edad-label" class="property-label"><g:message code="animal.edad.label" default="Edad" /></span>
+					
+						<span class="property-value" aria-labelledby="edad-label"><g:fieldValue bean="${animalInstance}" field="edad"/></span>
 					
 				</li>
 				</g:if>

@@ -29,3 +29,12 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: animalEventInstance, field: 'animal', 'error')} required">
+	<label for="animal">
+		<g:message code="animalEvent.animal.label" default="Animal" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="animal" name="animal.id" from="${org.rescate.Animal.list()}" optionKey="id" required="" value="${animalEventInstance?.animal?.id}" class="many-to-one"/>
+
+</div>
+

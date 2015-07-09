@@ -48,7 +48,7 @@ grails.project.dependency.resolution = {
         mavenRepo "http://repo1.maven.org/maven2/"
         mavenRepo "http://repo.maven.apache.org/maven2"
         mavenRepo "http://repository.apache.org/snapshots"
-
+        mavenRepo "http://repo.grails.org/grails/core"
         // needed for html5-mobile-scaffolding:0.6.1
         // mavenRepo "http://maven.springframework.org/milestone/"
         // mavenRepo "https://oss.sonatype.org/content/repositories/releases/"
@@ -60,6 +60,9 @@ grails.project.dependency.resolution = {
         // runtime 'org.postgresql:postgresql:9.3-1101-jdbc41'
         test "org.grails:grails-datastore-test-support:1.0.2-grails-2.4"
         runtime 'postgresql:postgresql:8.4-702.jdbc3' //needed for HEROKU
+        compile 'commons-beanutils:commons-beanutils:1.8.3' //to fix jquery-ui dependency
+		compile 'commons-collections:commons-collections:3.2.1'
+        //compile ":ajaxdependancyselection:0.45-SNAPSHOT2"
     }
 
     plugins {
@@ -79,9 +82,13 @@ grails.project.dependency.resolution = {
         compile ':spring-security-core:2.0-RC4' //add users & roles //http://grails.org/plugin/spring-security-core
         compile ":spring-security-ui:1.0-RC2" //add register as new user functionality //https://grails.org/plugin/spring-security-ui
         compile ":spring-security-facebook:0.17"
-        //compile 'commons-collections:commons-collections:3.2.1'
+        
         compile ":jquery-ui:1.10.4"
-
+        //compile ":easygrid:1.7.1"
+		
+		//JU
+		//runtime ":resources:1.2.14"
+		
         //runtime ":twitter-bootstrap:3.3.4"
         //compile ":lesscss-resources:1.3.3"
         //compile ":html5-mobile-scaffolding:0.6.1"
@@ -92,6 +99,7 @@ grails.project.dependency.resolution = {
         runtime ":hibernate4:4.3.8.1" // or ":hibernate:3.6.10.18"
         runtime ":database-migration:1.4.0"
         runtime ":jquery:1.11.1"
+
         //compile ":jquery-mobile-scaffolding:0.1"
 
         //http://www.bobbywarner.com/2012/01/05/jump-into-grails-2-0/

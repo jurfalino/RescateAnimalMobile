@@ -50,6 +50,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${animalEventInstance?.animal}">
+				<li class="fieldcontain">
+					<span id="animal-label" class="property-label"><g:message code="animalEvent.animal.label" default="Animal" /></span>
+					
+						<span class="property-value" aria-labelledby="animal-label"><g:link controller="animal" action="show" id="${animalEventInstance?.animal?.id}">${animalEventInstance?.animal?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 			</ol>
 			<g:form url="[resource:animalEventInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">

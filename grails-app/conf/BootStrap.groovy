@@ -1,3 +1,5 @@
+import java.util.Date;
+
 import org.rescate.*
 
 class BootStrap {
@@ -20,10 +22,22 @@ class BootStrap {
             UserRole.create user2, adminRole, true
         }
 
+        //def mainrolegroup = RoleGroup.findByName('MAIN') ?: new RoleGroup('MAIN')
+        //def userrolegroup = UserRoleGroup.findByUser(user2) ?: new UserRoleGroup(user2, mainrolegroup)
+
         assert User.count() == 2
         assert Role.count() == 2
         assert UserRole.count() == 3
 
+		Animal.withTransaction {
+			def animal1Nac = new AnimalEvent(eventType: 'nacimiento', eventDate: new Date(), comments:'comments')
+			def animal1Cas = new AnimalEvent(eventType: 'castracion', eventDate: new Date(), comments:'castracion')
+			def animal1 = new Animal(nombre: 'gat1', especie: 'Gato',color: 'Blanco',pelo: 'Corto', raza: 'Comun', edad:'<= 1 mes', dateOfIntake:new Date(), dateNeutered:new Date())
+			animal1.addToEventos(animal1Nac)
+			animal1.addToEventos(animal1Cas)
+			animal1.save(flush:true,  insert: true)
+        }
+		
     }
     def destroy = {
     }

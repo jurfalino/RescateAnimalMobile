@@ -30,6 +30,8 @@
 					
 						<g:sortableColumn property="comments" title="${message(code: 'animalEvent.comments.label', default: 'Comments')}" />
 					
+						<th><g:message code="animalEvent.animal.label" default="Animal" /></th>
+					
 					</tr>
 				</thead>
 				<tbody>
@@ -41,6 +43,8 @@
 						<td><g:formatDate date="${animalEventInstance.eventDate}" /></td>
 					
 						<td>${fieldValue(bean: animalEventInstance, field: "comments")}</td>
+					
+						<td>${fieldValue(bean: animalEventInstance, field: "animal")}</td>
 					
 					</tr>
 				</g:each>

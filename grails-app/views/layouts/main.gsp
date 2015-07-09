@@ -14,10 +14,22 @@
 		<link rel="apple-touch-icon" sizes="114x114" href="${assetPath(src: 'apple-touch-icon-retina.png')}">
   		<asset:stylesheet src="application.css"/>
 		<asset:javascript src="application.js"/>
+
+		<jqui:resources/>
 		<g:layoutHead/>
 	</head>
 	<body>
-		<div id="grailsLogo" role="banner"><a href="http://grails.org"><asset:image src="grails_logo.png" alt="Grails"/></a></div>
+		<div class="nav-collapse">
+			<ul class="nav pull-right">
+				<sec:ifNotLoggedIn>
+					<g:link controller='login' action='auth'>Login</g:link>
+				</sec:ifNotLoggedIn>
+				<sec:ifLoggedIn>
+					<sec:username/> - <li><g:link controller="logout" action="index">Logout</g:link></li>
+				</sec:ifLoggedIn>
+			</ul>
+		</div>
+		<div id="MainLogo" role="banner"><a href=""><asset:image src="kittens.png" height="80px" alt="Grails"/></a></div>
 		<g:layoutBody/>
 		<div class="footer" role="contentinfo"></div>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
