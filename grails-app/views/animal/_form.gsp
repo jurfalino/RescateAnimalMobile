@@ -64,12 +64,7 @@
 </div>
 <script type="text/javascript">
     var childCount = ${animalInstance?.eventos.size()} + 0;
-    
-    //This line clones the row inside the '.row' class and transforms it to plain html.
-    
-    //This line wraps the clonedRow and wraps it <tr> tags since cloning ignores those tags
-    
-    
+        
     function addChild() {
         var htmlId = "evento" + childCount;
         var deleteIcon = "${resource(dir:'images/skin', file:'database_delete.png')}";
