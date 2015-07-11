@@ -16,6 +16,7 @@ class Animal {
     //SortedSet imagenes
     //ArrayList eventos //= LazyList.decorate(new ArrayList(), FactoryUtils.instantiateFactory(AnimalEvent.class))
 	//List eventos = [].withLazyDefault {new AnimalEvent()}
+	List eventos = new ArrayList()
     static hasMany = [
             imagenes : Imagen,
             eventos : AnimalEvent

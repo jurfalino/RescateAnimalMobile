@@ -154,7 +154,17 @@ class AnimalController {
 
         render(view:'edit', model:[animalInstance: result.animalInstance.attach()])
     }
-
+//	def authorInstance = Author.get( params.id )
+//	if(authorInstance) {
+//		if(params.version) {
+//			// ... version locking stuff
+//		}
+//	authorInstance.properties = params
+//	def _toBeDeleted = authorInstance.books.findAll {it._deleted}
+//	if (_toBeDeleted) {
+//		authorInstance.books.removeAll(_toBeDeleted)
+//	}
+	
 //     def createDefault = {
 //         def animalInstance = new Animal()
 //         animalInstance.properties = params
@@ -165,6 +175,10 @@ class AnimalController {
         def result = animalService.create(params)
 
         if(!result.error)
+			//result.animalInstance.eventos
+			//def animal1Cas = new AnimalEvent(eventType: 'castracion', eventDate: new Date(), comments:'castracion')
+			//result.animalInstance.addToEventos(new AnimalEvent())
+			//result.animalInstance.save(flush:true,  insert: true)
             return [animalInstance: result.animalInstance]
 
         flash.message = g.message(code: result.error.code, args: result.error.args)

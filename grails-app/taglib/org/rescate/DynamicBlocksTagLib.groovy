@@ -3,6 +3,7 @@ package org.rescate
 class DynamicBlocksTagLib {
     //static defaultEncodeAs = [taglib:'html']
     //static encodeAsForTags = [tagName: [taglib:'html'], otherTagName: [taglib:'none']]
+	//static defaultEncodeAs = "raw"
 	
 	/**
 	 * Tag library namespace.
@@ -33,6 +34,8 @@ class DynamicBlocksTagLib {
 	 *                                the item index number)
 	 */
 	def block = { attrs, body ->
+	  // el problema de esta libreria es que no funciona para un edit donde tendria que hacer un each para los elementos que ya existen
+		
 	  // checks if the itemId attribute is passed to the tag
 	  def id = attrs.itemId
 	  if (!id) throwTagError("[id] attribute must be specified")
@@ -72,5 +75,44 @@ class DynamicBlocksTagLib {
 	  ])
 	}
 	
-	
+	def myEach = { attrs, body ->
+		//def id = attrs.itemId
+		//if (!id) throwTagError("[id] attribute must be specified")
+		//def elem = attrs.template ? render(template: attrs.template, model: attrs.model) : body()
+		def elem = body()
+		//elem = elem.replaceAll('\n', '')
+		//elem = elem.encodeAsHTML()
+		def var = attrs.var
+		def inobj = attrs.inobj
+		// las variables de status las evalua antes de traerme el contenido y llegan en null
+		// alt1: otra forma de implementar el tag (parecido al original)
+		// alt2: 
+		//def test = "{" + attrs.inobj.toString() + ".size() == 0}"
+		def count = inobj.size()
+		def status = attrs.status
+		def cnt = 0
+		def stri = body((status):cnt).toString()
+		//out << elem
+//		out << render(template: "/layouts/partials/dyn", model: [
+//			var: var,
+//			inobj: inobj,
+//			status: status,
+//			elem: elem,
+//			count: count
+//		])
+
+		inobj.each {
+			out << body((status):cnt, (var):it)
+			cnt++
+		}
+//		out << g.each(attrs, body) {
+//			'elem'
+//		  }
+		
+		
+		
+		//attrs.content = body()
+		//String template = "<g:each in='${attrs.in}'>${body}</g:each>"
+		//groovyPagesTemplateEngine.createTemplate(template, 'mytemplate').make([attrs:attrs]).writeTo(out)
+	}
 }
