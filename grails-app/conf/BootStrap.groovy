@@ -1,11 +1,13 @@
 import java.util.Date;
-
+import org.codehaus.groovy.grails.web.taglib.*
 import org.rescate.*
 
 class BootStrap {
 
     def init = { servletContext ->
 
+		GrailsTagRegistry.getInstance().registerTag(org.rescate.DynEachTag.TAG_NAME, org.rescate.DynEachTag.class)
+		
         def adminRole = Role.findByAuthority('ROLE_ADMIN') ?: new Role(authority: 'ROLE_ADMIN').save(failOnError: true)
         def userRole = Role.findByAuthority('ROLE_USER') ?: new Role(authority: 'ROLE_USER').save(failOnError: true)
 
